@@ -21,11 +21,11 @@ if ok == num{
 }
 pub fn get_array(num_of_elem: i32) -> [i32; SIZE]{
     let mut arr: [i32; SIZE] = [0;SIZE];
-    println!("Please enter the elements of the array");
+    println!("\nPlease enter the elements of the array");
     for i in 0..num_of_elem as usize {
         arr[i] = get_nums();
     }
-    print!("Initail Array: ");
+    print!("\nInitail Array: ");
     for i in 0..num_of_elem as usize{
         print!("{} ",arr[i]);
     }    
