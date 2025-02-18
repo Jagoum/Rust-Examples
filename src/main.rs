@@ -9,17 +9,29 @@ fn main() {
     let arr= get_array(num_of_elem);
 
     println!("Please Enter\n1=>To reverse the array\n2=>To remove an element from the array\n3To add an element into the array");
-    reverse_array(num_of_elem, arr);
-    println!("\nPlease enter the index at which you would like to remove an element from the initail array");
-    let index =get_nums();
-    remove_index(index, arr, num_of_elem);
+    
+    let opt = get_nums();
+
+    match opt {
+        1 =>{reverse_array(num_of_elem, arr);},
+        2 => {    println!("\nPlease enter the index at which you would like to remove an element from the initail array");
+        let index =get_nums();
+        remove_index(index, arr, num_of_elem);},
+        3 => {     println!("\nPlease enter the index at which you would like to insert an element");
+        let index = get_nums();
+        println!("\nEnter the element you would like to insert");
+        let element = get_nums();
+        add_element(index, element, num_of_elem, arr);},
+        _ => println!("Please enter one of the above options"),
+        
+    }
 
 
-    println!("\nPlease enter the index at which you would like to insert an element");
-    let index = get_nums();
-    println!("\nEnter the element you would like to insert");
-    let element = get_nums();
-    add_element(index, element, num_of_elem, arr);
+
+
+
+
+
 
     
 }
