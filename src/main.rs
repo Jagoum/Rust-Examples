@@ -13,10 +13,10 @@ fn main() {
     let mut num_of_elem = get_nums();
     let mut arr = get_array(num_of_elem);
     if num_of_elem < 1 {
-        return println!("Number of element cannot be less than 1");
+        return println!("\nNumber of element cannot be less than 1");
     }
     loop {
-        println!("\nPlease Enter\n1=>To reverse the array\n2=>To remove an element from the array\n3=>To add an element into the array\n4=>To Exit");
+        println!("\nEnter\n1=>To reverse the array\n2=>To remove an element from the array\n3=>To add an element into the array\n4=>To Exit");
 
         let opt = get_nums();
 
@@ -39,7 +39,7 @@ fn main() {
             4 => {
                 break;
             }
-            _ => println!("Sorry, enter one of the above options to proceed!"),
+            _ => println!("\nSorry, enter one of the above options to proceed!"),
         }
         println!();
     }
