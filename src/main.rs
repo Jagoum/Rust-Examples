@@ -24,12 +24,12 @@ fn main() {
             reverse_array(num_of_elem, arr);
         }
         2 => {
-            println!("\nPlease enter the index at which you would like to remove an element from the initail array [ 0 < index < number of elements ]");
+            println!("\nPlease enter the position at which you would like to remove an element from the initail array [ 0 < index < number of elements ]");
             let index = get_nums();
             remove_index(index-1, arr, num_of_elem);
         }
         3 => {
-            println!("\nPlease enter the index at which you would like to insert an element [ 0 < index < number of elements ]");
+            println!("\nPlease enter the position at which you would like to insert an element [ 0 < index < number of elements ]");
             let index = get_nums();
             println!("\nEnter the element you would like to insert");
             let element = get_nums();
