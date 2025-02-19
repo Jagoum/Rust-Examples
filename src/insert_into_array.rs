@@ -1,7 +1,11 @@
 use crate::reverse_array::SIZE;
 
-pub fn add_element(index: i32, element: i32, num_of_elem: i32, arr: [i32; SIZE]) /*[i32; SIZE]*/
-{
+pub fn add_element(
+    index: i32,
+    element: i32,
+    num_of_elem: i32,
+    arr: [i32; SIZE],
+) -> ([i32; SIZE], i32) {
     let mut arr = arr; //  let arr = [ 1, 2, 4, 5,_,7, 9 , 0, 0]
     let mut ri = num_of_elem as usize; // the expected value of ri should be num_of_element which is 6
     let index = index as usize; // let say the user want to remove an element at index 3, there4 index = 3
@@ -13,15 +17,16 @@ pub fn add_element(index: i32, element: i32, num_of_elem: i32, arr: [i32; SIZE])
     if (ri - 1) == index {
         arr[ri] = arr[ri - 1];
         arr[index] = element;
-    }
-    else{
-        arr[index] = element;       
+    } else {
+        arr[index] = element;
     }
 
-    println!("\nResultant Array after inserting and element: ");
-    for i in 0..= num_of_elem as usize {
-        print!("{} ", arr[i]);
+    println!("\nResultant Array after inserting and element: [ ");
+    for i in 0..=num_of_elem as usize {
+        print!("{}, ", arr[i]);
     }
+    print!("]");
+    (arr, num_of_elem + 1)
 }
 /*
 let mut n = ri - 1; // n = 6 - 1 = 5

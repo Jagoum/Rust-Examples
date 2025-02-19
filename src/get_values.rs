@@ -25,9 +25,10 @@ pub fn get_array(num_of_elem: i32) -> [i32; SIZE]{
     for i in 0..num_of_elem as usize {
         arr[i] = get_nums();
     }
-    print!("\nInitail Array: ");
+    print!("\nInitail Array: [ ");
     for i in 0..num_of_elem as usize{
-        print!("{} ",arr[i]);
-    }    
+        print!("{}, ",arr[i]);
+    }  
+    print!("]");  
 arr
 }
