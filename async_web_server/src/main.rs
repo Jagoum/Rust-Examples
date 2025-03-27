@@ -1,38 +1,24 @@
-use std::fs::read_to_string;
+use std::error;
 
 use scraper::{Html, Selector};
 
 #[tokio::main]
-async fn main() {
-// this is the content of a website that has html file
-    let html = r#"
+async fn main() -> Result<(), Box<dyn error::Error>> {
+    // this is the url of the website we are fetching the informations from
+    let url = "https://rapidapi.com/blog/most-popular-api/";
+    let response = reqwest::get(url).await?; //this  gets the api response from the web server with the all information that is to say it gets the html content from the website
+    let body = response.text().await?; // this is to extract the body of the response
+    let html = Html::parse_document(&body);
 
-                <html>
-            <body>
-                <a href="https://example.com">Example</a>
-                <a href="https://rust-lang.org">Rust</a>
-            </body>
-        </html>
+    let selector = Selector::parse("img").expect("Failed to parse selector");
 
-    "#;
-// This is to convert the string of text receive to an html file and return an error if the file could not be converted
-    let document = Html::parse_document(html);
-    let selector = Selector::parse("a").unwrap(); // this is the criteria with which the selection is madTe
-
-    for element in document.select(&selector) {
-        if let Some(link) = element.value().attr("href"){
-            println!("Found Link: {link}");
+    for element in html.select(&selector) {
+        if let Some(val) = element.attr("a") {
+            //this one checks if the attribute href is also present in the link is found
+            println!("Found Image: {val}")
         }
     }
 
-let fragment = Html::parse_fragment(r#"<h1 id="new">Hello, <i>world!</i></h1>"#);
-let selector = Selector::parse("h1").unwrap();
-
-let h1 = fragment.select(&selector).next().unwrap();
-
-    let value = h1.value().attr("").unwrap();
-
-    
-
-
+    // println!("{html:?}");
+    Ok(())
 }
