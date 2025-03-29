@@ -1,0 +1,8 @@
+[package]
+name = "async_file_downloader"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+reqwest = "0.12.15"
+tokio ={ version = "*", features = ["full"] }
