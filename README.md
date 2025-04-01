@@ -8,4 +8,9 @@ clone the repository using the following command
 git clone github.com/Jagoum/Rust-Examples.git
 cd Rust-Examples
 ```
+#### How To Run The Project
 
+To run the project just 
+```sh
+    cargo run -p name-of-sub-project
+```
